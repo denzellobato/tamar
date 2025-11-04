@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projeto TAMAR</title>
+  <link href="https://fonts.googleapis.com/css2?family=Karantina:wght@400&family=Jost:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --color-primary: #006c79;
+      --color-secondary: #5a422a;
+      --color-background-light: #e5e2d9;
+      --color-background-white: #ffffff;
+      --font-heading: 'Karantina', cursive;
+      --font-body: 'Jost', sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: var(--font-body);
+      background-color: var(--color-background-white);
+      color: var(--color-secondary);
+      overflow-x: hidden;
+    }
+
+    .page-wrapper {
+      max-width: 1920px;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    section {
+      position: relative;
+      padding: 80px 100px;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: var(--font-heading);
+      font-weight: 400;
+      margin: 0;
+    }
+
+    p {
+      font-size: 30px;
+      line-height: 1.2;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    @media (max-width: 1200px) {
+      section {
+        padding: 60px 40px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      section {
+        padding: 40px 20px;
+      }
+      p {
+        font-size: 20px;
+      }
+    }
+
+    /* Header Styles */
+    .header-section {
+      background-color: var(--color-background-light);
+      padding: 0;
+      height: 200px;
+      display: flex;
+      align-items: center;
+    }
+    .header-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      padding: 0 100px;
+    }
+    .header-logo {
+      position: relative;
+      top: -30px;
+      width: 211px;
+    }
+    .header-title {
+      color: var(--color-primary);
+      font-size: 150px;
+      line-height: 1;
+      text-shadow: 2.95px 1.47px 8.11px rgba(0, 0, 0, 0.29);
+    }
+    .header-nav {
+      display: flex;
+      gap: 40px;
+    }
+    .header-nav a {
+      font-family: var(--font-heading);
+      font-size: 75px;
+      color: var(--color-secondary);
+      text-decoration: none;
+      line-height: 1;
+      transition: color 0.3s ease;
+    }
+    .header-nav a:hover {
+      color: var(--color-primary);
+    }
+
+    @media (max-width: 1200px) {
+      .header-container { padding: 0 40px; }
+      .header-title { font-size: 100px; }
+      .header-nav a { font-size: 50px; }
+      .header-nav { gap: 20px; }
+    }
+    @media (max-width: 768px) {
+      .header-section { height: auto; padding: 20px; }
+      .header-container { flex-direction: column; gap: 20px; }
+      .header-logo { top: 0; }
+      .header-title { font-size: 80px; text-align: center; }
+      .header-nav { justify-content: center; flex-wrap: wrap; }
+      .header-nav a { font-size: 40px; }
+    }
+
+    /* Hero Section */
+    .hero-section {
+      padding: 0;
+      height: 1106px;
+       background-image: url("img1.png");
+      background-size: cover;
+      background-position: center;
+      color: var(--color-background-white);
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      position: relative;
+    }
+    .hero-content {
+      position: absolute;
+      top: 386px;
+      left: 223px;
+      max-width: 688px;
+      z-index: 2;
+    }
+    .hero-title {
+      font-size: 160px;
+      line-height: 1;
+      text-shadow: 9px 4px 21px rgba(0, 0, 0, 0.49);
+    }
+    .hero-description {
+      font-size: 40px;
+      line-height: 45px;
+      text-shadow: 3px 5px 13px rgba(0, 0, 0, 0.49);
+    }
+    .hero-visuals {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+    }
+    .hero-main-logo {
+      position: absolute;
+      top: 143px;
+      left: 957px;
+      width: 615px;
+      height: 584px;
+    }
+    .hero-image-1 {
+      position: absolute;
+      top: 86px;
+      left: 1592px;
+      width: 400px;
+      height: 450px;
+      border-radius: 51px;
+      box-shadow: 6px 9px 24px 0px rgba(0, 0, 0, 0.34);
+    }
+    .hero-image-2 {
+      position: absolute;
+      top: 660px;
+      left: 1592px;
+      width: 400px;
+      height: 315px;
+      border-radius: 51px;
+      box-shadow: 5px 8px 21px 0px rgba(0, 0, 0, 0.34);
+    }
+    .hero-wave-bottom {
+      position: absolute;
+      bottom: -1px;
+      left: 0;
+      width: 100%;
+      z-index: 10;
+    }
+
+    @media (max-width: 1200px) {
+      .hero-section { height: auto; padding-bottom: 10%; }
+      .hero-content { position: static; padding: 60px 40px; max-width: 100%; text-align: center; }
+      .hero-visuals { display: none; }
+    }
+    @media (max-width: 768px) {
+      .hero-title { font-size: 100px; }
+      .hero-description { font-size: 24px; line-height: 1.4; }
+    }
+
+    /* Projects Section */
+    .projects-section {
+      background: linear-gradient(180deg, #006c79 36.37%, #e5e2d9 67.37%);
+      padding-top: 200px;
+      color: var(--color-background-light);
+    }
+    .projects-wave-top {
+      position: absolute;
+      top: -314px;
+      left: 0;
+      width: 100%;
+      z-index: 5;
+    }
+    .projects-main-title {
+      font-size: 160px;
+      line-height: 1;
+      margin-bottom: 40px;
+      position: absolute;
+      top: 55px;
+      left: 100px;
+      color: var(--color-background-white);
+    }
+    .projects-grid {
+      display: flex;
+      gap: 60px;
+    }
+    .projects-left-col, .projects-right-col {
+      flex: 1;
+    }
+    .projects-left-col {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+    }
+    .project-slider {
+      position: relative;
+      width: 100%;
+    }
+    .slider-image {
+      width: 100%;
+      border-radius: 49px;
+    }
+    .slider-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      cursor: pointer;
+      width: 60px;
+      height: 60px;
+    }
+    .slider-arrow.prev { left: 20px; }
+    .slider-arrow.next { right: 20px; }
+    .instagram-promo {
+      background-color: var(--color-secondary);
+      border-radius: 51px;
+      padding: 20px 30px;
+      max-width: 420px;
+    }
+    .insta-handle {
+      font-family: var(--font-heading);
+      font-size: 60px;
+      line-height: 1;
+      margin-bottom: 15px;
+      color: var(--color-background-white);
+    }
+    .insta-text {
+      font-size: 30px;
+      line-height: 1.1;
+      color: var(--color-background-white);
+    }
+    .projects-right-col {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+    }
+    .project-item {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+    }
+    .project-item img {
+      width: 250px;
+      height: 250px;
+      object-fit: cover;
+      border-radius: 49px;
+      flex-shrink: 0;
+    }
+    .project-item p {
+      font-size: 30px;
+      line-height: 1.2;
+      color: var(--color-background-white);
+    }
+
+    @media (max-width: 1200px) {
+      .projects-grid { flex-direction: column; }
+      .projects-main-title { position: static; margin-bottom: 40px; }
+      .project-item p { font-size: 24px; }
+    }
+    @media (max-width: 768px) {
+      .projects-section { padding-top: 80px; }
+      .projects-main-title { font-size: 100px; }
+      .project-item { flex-direction: column; text-align: center; }
+      .project-item img { width: 100%; height: auto; }
+      .project-item p { font-size: 18px; }
+      .insta-handle { font-size: 40px; }
+      .insta-text { font-size: 20px; }
+    }
+
+    /* Turtles Section */
+    .turtles-section {
+      background-color: var(--color-background-light);
+    }
+    .turtles-main-title {
+      font-size: 160px;
+      line-height: 1;
+      color: var(--color-secondary);
+      margin-bottom: 40px;
+      text-shadow: 6px 3px 14px rgba(0,0,0,0.1);
+    }
+    .turtles-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 40px;
+    }
+    .turtle-card {
+      background-color: var(--color-background-white);
+      border-radius: 51px;
+      overflow: hidden;
+      box-shadow: 6px 9px 25px 0px rgba(0, 0, 0, 0.34);
+      transition: transform 0.3s ease;
+    }
+    .turtle-card:hover {
+      transform: translateY(-10px);
+    }
+    .turtle-card img {
+      width: 100%;
+      height: 600px;
+      object-fit: cover;
+    }
+    .turtle-info {
+      padding: 25px;
+      color: var(--color-secondary);
+    }
+    .turtle-info h3 {
+      font-size: 80px;
+      line-height: 1;
+    }
+    .turtle-info p {
+      font-size: 25px;
+      line-height: 30px;
+    }
+
+    @media (max-width: 1200px) {
+      .turtles-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    @media (max-width: 768px) {
+      .turtles-main-title { font-size: 100px; }
+      .turtles-grid {
+        grid-template-columns: 1fr;
+      }
+      .turtle-card img { height: 300px; }
+      .turtle-info h3 { font-size: 60px; }
+      .turtle-info p { font-size: 18px; }
+    }
+
+    /* Visit Section */
+    .visit-section {
+      background-color: var(--color-secondary);
+      color: var(--color-background-light);
+    }
+    .visit-content {
+      display: flex;
+      gap: 60px;
+      align-items: flex-start;
+    }
+    .visit-text-content {
+      flex-basis: 35%;
+    }
+    .visit-title {
+      font-size: 160px;
+      line-height: 1;
+      text-shadow: 6px 3px 14px rgba(0,0,0,0.49);
+    }
+    .visit-subtitle {
+      font-size: 60px;
+      line-height: 1;
+      margin: 20px 0;
+      color: var(--color-background-white);
+    }
+    .visit-text-content p {
+      font-size: 30px;
+      line-height: 1.2;
+      color: var(--color-background-white);
+    }
+    .visit-visual-content {
+      flex-basis: 65%;
+      display: flex;
+      gap: 40px;
+      align-items: flex-start;
+    }
+    .visit-slider {
+      position: relative;
+      flex-basis: 550px;
+    }
+    .visit-slider-img {
+      border-radius: 51px;
+      width: 100%;
+    }
+    .visit-slider-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      cursor: pointer;
+      width: 60px;
+      height: 60px;
+    }
+    .visit-slider-arrow.prev { left: 20px; }
+    .visit-slider-arrow.next { right: 20px; }
+    .shop-card {
+      flex-basis: 360px;
+      position: relative;
+    }
+    .shop-card img {
+      border-radius: 51px;
+      width: 100%;
+    }
+    .shop-info {
+      background-color: #e1ded6;
+      border-radius: 51px;
+      padding: 20px;
+      text-align: center;
+      margin-top: -35px;
+      position: relative;
+      z-index: 1;
+    }
+    .shop-info h3 {
+      color: var(--color-secondary);
+      font-size: 70px;
+      line-height: 1;
+    }
+    .shop-info p {
+      color: var(--color-secondary);
+      font-size: 30px;
+      line-height: 1.1;
+    }
+
+    @media (max-width: 1200px) {
+      .visit-content, .visit-visual-content { flex-direction: column; }
+      .visit-text-content, .visit-visual-content { flex-basis: 100%; }
+    }
+    @media (max-width: 768px) {
+      .visit-title { font-size: 100px; }
+      .visit-subtitle { font-size: 40px; }
+      .visit-text-content p { font-size: 20px; }
+      .shop-info h3 { font-size: 50px; }
+      .shop-info p { font-size: 18px; }
+    }
+
+    /* Donate Section */
+    .donate-section {
+      background-color: var(--color-background-light);
+    }
+    .donate-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 40px;
+    }
+    .donate-text {
+      flex-basis: 40%;
+    }
+    .donate-title {
+      font-size: 165px;
+      line-height: 1;
+      color: var(--color-secondary);
+      text-shadow: 3px 2px 8px rgba(0,0,0,0.1);
+    }
+    .donate-text p {
+      font-size: 30px;
+      line-height: 1.3;
+      color: var(--color-secondary);
+    }
+    .donate-interactive {
+      flex-basis: 55%;
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+    }
+    .donation-amount {
+      position: relative;
+      text-align: center;
+    }
+    .donation-amount img {
+      width: 477px;
+    }
+    .donation-amount span {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-family: var(--font-heading);
+      font-size: 120px;
+      color: var(--color-background-white);
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    }
+    .donate-form {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+      width: 360px;
+    }
+    .donate-form input {
+      height: 70px;
+      border-radius: 30px;
+      border: 1px solid var(--color-primary);
+      background-color: var(--color-background-light);
+      padding: 0 20px;
+      font-family: var(--font-body);
+      font-size: 30px;
+      color: var(--color-secondary);
+    }
+    .donate-form input::placeholder {
+      color: var(--color-secondary);
+      opacity: 0.8;
+    }
+    .donate-form button {
+      height: 100px;
+      border-radius: 51px;
+      background-color: var(--color-primary);
+      border: none;
+      font-family: var(--font-heading);
+      font-size: 100px;
+      color: #e1ded6;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    .donate-form button:hover {
+      background-color: #005662;
+    }
+
+    @media (max-width: 1200px) {
+      .donate-content, .donate-interactive { flex-direction: column; }
+    }
+    @media (max-width: 768px) {
+      .donate-title { font-size: 100px; }
+      .donate-text p { font-size: 20px; }
+      .donation-amount span { font-size: 80px; }
+      .donate-form { width: 100%; }
+      .donate-form button { font-size: 60px; height: 80px; }
+    }
+
+    /* Footer Section */
+    .footer-section {
+      padding: 0;
+      height: 600px;
+      background-color: var(--color-background-light);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      align-items: center;
+      text-align: center;
+      color: var(--color-background-white);
+      position: relative;
+    }
+    .footer-background {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 359px;
+      background-color: var(--color-primary);
+      z-index: 1;
+    }
+    .footer-wave {
+      position: absolute;
+      bottom: 299px;
+      left: 0;
+      width: 100%;
+    }
+    .footer-decorations {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      overflow: hidden;
+      z-index: 2;
+    }
+    .deco-turtle-1 { position: absolute; top: 26px; left: 182px; width: 150px; }
+    .deco-turtle-2 { position: absolute; top: -18px; right: 166px; width: 150px; }
+    .deco-turtle-3 { position: absolute; bottom: -222px; right: -93px; width: 200px; }
+
+    .footer-content {
+      position: relative;
+      z-index: 3;
+      padding-bottom: 40px;
+      max-width: 800px;
+    }
+    .footer-content h2 {
+      font-size: 60px;
+      line-height: 1;
+    }
+    .footer-content p {
+      font-size: 30px;
+      line-height: 45px;
+      text-shadow: 3px 5px 13px rgba(0,0,0,0.49);
+    }
+    .footer-copyright {
+      margin-top: 20px;
+    }
+
+    @media (max-width: 1200px) {
+      .footer-decorations { display: none; }
+    }
+    @media (max-width: 768px) {
+      .footer-section { height: auto; padding: 150px 20px 40px 20px; }
+      .footer-background { height: 100%; position: relative; }
+      .footer-wave { bottom: auto; top: 0; position: relative; margin-bottom: 20px; }
+      .footer-content h2 { font-size: 40px; }
+      .footer-content p { font-size: 16px; line-height: 1.5; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page-wrapper">
+    <section id="section-header" class="header-section">
+      <header class="header-container">
+        <a href="#" class="header-logo">
+          <img src="vectort1.png" alt="Tamar Logo">
+        </a>
+        <h1 class="header-title">Conheça o TAMAR</h1>
+        <nav class="header-nav">
+          <a href="#section-projects">Projetos</a>
+          <a href="#section-turtles">Tartarugas</a>
+          <a href="#section-visit">Visite</a>
+          <a href="#section-donate">Doe</a>
+        </nav>
+      </header>
+    </section>
+
+    <section id="section-hero" class="hero-section">
+      <div class="hero-content">
+      
+        <h2 class="hero-title">O projeto TAMAR</h2>
+        <p class="hero-description">Atua há mais de 40 anos na proteção das tartarugas marinhas ameaçadas de extinção no Brasil. De norte a sul do país, trabalhamos para conservar espécies, educar comunidades e inspirar novas gerações a cuidar do oceano.</p>
+      </div>
+      <div class="hero-visuals">
+        <img src="logo.png" alt="Projeto Tamar Foundation Logo" class="hero-main-logo">
+        <img src="img2.png" alt="Turtles hatching" class="hero-image-1">
+        <img src="img3.png" alt="Sunset on the beach with a turtle" class="hero-image-2">
+      </div>
+      <img src="Vector1.png" class="hero-wave-bottom" alt="Wave decoration">
+    </section>
+
+    <section id="section-projects" class="projects-section">
+      <img src="https://via.placeholder.com/1920x314/e5e2d9/006c79?text=Wave" class="projects-wave-top" alt="Wave decoration">
+      <h2 class="projects-main-title">Projetos</h2>
+      <div class="projects-grid">
+        <div class="projects-left-col">
+          <div class="project-slider">
+            <img src="img4.png" alt="Baby turtle on sand" class="slider-image">
+            <img src="img12.png" alt="Previous" class="slider-arrow prev">
+            <img src="https://via.placeholder.com/60x60/ffffff/000000?text=>" alt="Next" class="slider-arrow next">
+          </div>
+          <div class="instagram-promo">
+            <p class="insta-handle">@projeto_tamar_oficial</p>
+            <p class="insta-text">Siga o Projeto TAMAR no Instagram e acompanhe de perto nossas ações pelo oceano!</p>
+          </div>
+        </div>
+        <div class="projects-right-col">
+          <div class="project-item">
+            <img src="img5.png" alt="Project activity 1">
+            <p>A Fundação Projeto Tamar inaugurou em Regência (Linhares-ES) o "Espaço Praia", voltado à pesquisa, educação ambiental e conservação das tartarugas marinhas, além de apoiar iniciativas comunitárias de geração de renda.</p>
+          </div>
+          <div class="project-item">
+            <img src="img6.png" alt="Project activity 2">
+            <p>A Fundação Projeto Tamar promove oficinas educativas em comunidades da Bahia e do Espírito Santo, unindo saberes locais, ciência e práticas criativas como pesca artesanal, animação e produção audiovisual.</p>
+          </div>
+          <div class="project-item">
+            <img src="img7.png" alt="Project activity 3">
+            <p>A Lista Vermelha do ICMBio será revisada para atualizar o status das cinco espécies de tartarugas marinhas no Brasil.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="section-turtles" class="turtles-section">
+      <h2 class="turtles-main-title">Tartarugas</h2>
+      <div class="turtles-grid">
+        <div class="turtle-card">
+          <img src="img8.png" alt="Cabeçuda turtle">
+          <div class="turtle-info">
+            <h3>Cabeçuda</h3>
+            <p>Pode chegar a 136 cm e 180 kg, sendo carnívora com mandíbula muito forte. No Brasil, faz cerca de 9.000 ninhos por temporada.</p>
+          </div>
+        </div>
+        <div class="turtle-card">
+          <img src="img9.png" alt="De Pente turtle">
+          <div class="turtle-info">
+            <h3>De Pente</h3>
+            <p>Habita recifes e costões rochosos, chegando a 114 cm e 80 kg, com bico em forma de falcão e dieta baseada em esponjas e corais.</p>
+          </div>
+        </div>
+        <div class="turtle-card">
+          <img src="img10.png" alt="De Couro turtle">
+          <div class="turtle-info">
+            <h3>De Couro</h3>
+            <p>Pode atingir 182 cm e 500 kg, sendo a maior das tartarugas marinhas e alimentando-se de águas-vivas.</p>
+          </div>
+        </div>
+        <div class="turtle-card">
+          <img src="img11.png" alt="Verde turtle">
+          <div class="turtle-info">
+            <h3>Verde</h3>
+            <p>Pode atingir 143 cm e 230 kg, sendo herbívora na fase adulta e vivendo em mares tropicais e subtropicais.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="section-visit" class="visit-section">
+      <div class="visit-content">
+        <div class="visit-text-content">
+          <h2 class="visit-title">Visite</h2>
+          <h3 class="visit-subtitle">FUNDAÇÃO PROJETO TAMAR FERNANDO DE NORONHA - PE</h3>
+          <p>O Centro de Visitantes do Projeto Tamar em Fernando de Noronha recebe cerca de 40 mil visitantes por ano e promove pesquisa, conservação e educação ambiental sobre tartarugas marinhas.</p>
+        </div>
+        <div class="visit-visual-content">
+          <div class="visit-slider">
+            <img src="img12.png" alt="Visitor at Tamar store" class="visit-slider-img">
+            <img src="img12.png" alt="Previous" class="visit-slider-arrow prev">
+            <img src="https://via.placeholder.com/60x60/e1ded6/5a422a?text=>" alt="Next" class="visit-slider-arrow next">
+          </div>
+          <div class="shop-card">
+            <img src="https://via.placeholder.com/360x300/e1ded6/5a422a?text=Loja" alt="Tamar visitor center entrance">
+            <div class="shop-info">
+              <h3>Loja online</h3>
+              <p>A Fundação Projeto Tamar garante sua sustentabilidade com recursos próprios gerados em Centros de Visitantes, Lojas e serviços.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="section-donate" class="donate-section">
+      <div class="donate-content">
+        <div class="donate-text">
+          <h2 class="donate-title">Doe</h2>
+          <p>O Projeto Tamar só é possível graças ao apoio de comunidades, instituições, turistas, consumidores e governantes. Cada pessoa pode contribuir comprando produtos, visitando centros ou sendo voluntário.</p>
+        </div>
+        <div class="donate-interactive">
+          <div class="donation-amount">
+            <img src="vectort2.png" alt="Turtle silhouette">
+            <span>R$50,00</span>
+          </div>
+          <form class="donate-form">
+            <input type="text" placeholder="Informe seu nome">
+            <input type="email" placeholder="Informe seu email">
+            <button type="submit">Doar</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <section id="section-footer" class="footer-section">
+      <div class="footer-background">
+        <img src="Vector2.png" alt="Wave decoration" class="footer-wave">
+      </div>
+      <div class="footer-decorations">
+        <img src="vectort3.png" alt="Turtle decoration" class="deco-turtle-1">
+        <img src="vectort3.png" alt="Turtle decoration" class="deco-turtle-2">
+        <img src="vectort4.png" alt="Turtle decoration" class="deco-turtle-3">
+      </div>
+      <div class="footer-content">
+        <h2>Fundação Projeto TAMAR</h2>
+        <p class="footer-contact">+55 (71) 3676-1045 | Avenida do Farol, s/n | 48280-000 – Praia do Forte, Mata de São João/BA | CNPJ 16.110.041/0001-70</p>
+        <p class="footer-copyright">2025 © Projeto TAMAR</p>
+      </div>
+    </section>
+  </div>
+
+  <script>
+    // Simple form submission prevention for demo
+    document.querySelector('.donate-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      alert('Obrigado pela sua doação! 💙');
+    });
+
+    // Smooth scrolling for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+  </script>
+</body>
+</html> 
